@@ -14,6 +14,15 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Lexer l = new Lexer("$vasco = 1; "
                           + "print($vasco);");
+        
+//        for (int i = 0; i < 10; i++) {
+//            Token t = l.nextToken();
+//            System.out.print("Tipo: "+t.type);
+//            System.out.print("| Valor: "+t.value);
+//            System.out.println("| Nome: "+t.name);
+//                               
+//        }
+        
         Parser p = new Parser(l);
         p.prog();
     }

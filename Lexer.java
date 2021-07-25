@@ -94,7 +94,7 @@ public class Lexer {
             if (peek != Character.MIN_VALUE) {
                 position--;
             }
-            System.out.println("esse é o v: " + v);
+            //System.out.println("esse é o v: " + v);
             return new Token(TokenType.var, v);
         }
         
@@ -107,7 +107,7 @@ public class Lexer {
             if (peek != Character.MIN_VALUE) {
                 position--;
             }
-            System.out.println("esse é o v do print: " + v);
+            //System.out.println("esse é o v do print: " + v);
             if(v.contains("print")){
                 return new Token(TokenType.print);
             }else{

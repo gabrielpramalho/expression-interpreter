@@ -22,7 +22,7 @@ public class Token {
     
     public Token(int type, Double value){
         this.type = type;
-        this.value = this.value;
+        this.value = value;
         this.name = "";
     }
     

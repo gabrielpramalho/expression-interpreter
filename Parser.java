@@ -31,7 +31,7 @@ public class Parser {
     }
     
     public void Match(Token token) throws Exception{
-        System.out.println(token.type);
+       // System.out.println(token.type);
         if(lookAhead.type == token.type && lookAhead.value == token.value){
             lookAhead = lexer.nextToken();
         }else{
@@ -40,7 +40,6 @@ public class Parser {
     }
     
     public void prog() throws Exception{ //prog ::= stmt EOL lines
-        System.out.println("entrei");
         stmt();
         Match(lookAhead);
         lines();
@@ -68,14 +67,14 @@ public class Parser {
     public void atr() throws Exception{// atr  ::= VAR EQ expr
         
         Token t = lookAhead;
-        System.out.println("esse é look: "+lookAhead.type);
+       // System.out.println("esse é look: "+lookAhead.type);
         Match(lookAhead);
         
-        System.out.println("esse é look: "+lookAhead.type);
+        //System.out.println("esse é look: "+lookAhead.type);
         
         Match(lookAhead);
         
-        System.out.println("esse é look: "+lookAhead.type);
+        //System.out.println("esse é look: "+lookAhead.type);
         
         double expr = expr();
         
@@ -94,6 +93,7 @@ public class Parser {
         
         
         Double v = lookAhead.value;
+        System.out.println("type: "+lookAhead.type+" value: "+lookAhead.value+" name: "+lookAhead.name);
         Match(lookAhead);
 
         
@@ -101,7 +101,7 @@ public class Parser {
             Match(lookAhead);
         }
         
-        System.out.println(v);
+        System.out.println("SAiDA"+v);
 
         
     }
@@ -140,6 +140,8 @@ public class Parser {
         
     }
     public double term() throws Exception{//term ::= OPEN expr CLOSE | NUM | VAR
+        
+        
 
         if(lookAhead.type == TokenType.open){
             return expr();
@@ -147,6 +149,7 @@ public class Parser {
         
         if(lookAhead.type == TokenType.number){
             double v = lookAhead.value;
+            //System.out.println("entrei: "+v);
             Match(lookAhead);
             return v;
         }
