@@ -12,8 +12,8 @@ package com.mycompany.interpretador;
 public class Main {
     
     public static void main(String[] args) throws Exception {
-        Lexer l = new Lexer("$vasco = 1; "
-                          + "print($vasco);");
+        Lexer l = new Lexer("$x = 2 + 2 * 3; "
+                          + "print($x);");
         
 //        for (int i = 0; i < 10; i++) {
 //            Token t = l.nextToken();

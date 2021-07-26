@@ -1,6 +1,9 @@
 
 package com.mycompany.interpretador;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author Gabriel
@@ -8,6 +11,8 @@ package com.mycompany.interpretador;
 public class Parser {
     private Lexer lexer;
     private Token lookAhead;
+    
+    Map<String, Double> symbolTable = new HashMap<String, Double>();
     
     public Parser (Lexer lexer){
         this.lexer = lexer;
@@ -66,7 +71,7 @@ public class Parser {
     
     public void atr() throws Exception{// atr  ::= VAR EQ expr
         
-        Token t = lookAhead;
+        String s = lookAhead.name;
        // System.out.println("esse é look: "+lookAhead.type);
         Match(lookAhead);
         
@@ -78,7 +83,7 @@ public class Parser {
         
         double expr = expr();
         
-        t.setValue(expr);
+        symbolTable.put(s, expr);
         
         
     }
@@ -92,8 +97,8 @@ public class Parser {
         }
         
         
-        Double v = lookAhead.value;
-        System.out.println("type: "+lookAhead.type+" value: "+lookAhead.value+" name: "+lookAhead.name);
+        Double v = symbolTable.get(lookAhead.name);
+        //System.out.println("type: "+lookAhead.type+" value: "+lookAhead.value+" name: "+lookAhead.name);
         Match(lookAhead);
 
         
@@ -101,7 +106,7 @@ public class Parser {
             Match(lookAhead);
         }
         
-        System.out.println("SAiDA"+v);
+        System.out.println("Saída: "+v);
 
         
     }
@@ -155,9 +160,9 @@ public class Parser {
         }
         
         if(lookAhead.type == TokenType.var){
-            double v = lookAhead.value;
+            String s = lookAhead.name;
             Match(lookAhead);
-            return v;
+            return symbolTable.get(s);
         }
         
         return 99;
