@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.interpretador;
 
-/**
- *
- * @author Gabriel
- */
 public class Lexer {
     
     String spaces = " \n\t";
@@ -94,7 +86,6 @@ public class Lexer {
             if (peek != Character.MIN_VALUE) {
                 position--;
             }
-            //System.out.println("esse é o v: " + v);
             return new Token(TokenType.var, v);
         }
         
@@ -107,7 +98,7 @@ public class Lexer {
             if (peek != Character.MIN_VALUE) {
                 position--;
             }
-            //System.out.println("esse é o v do print: " + v);
+
             if(v.contains("print")){
                 return new Token(TokenType.print);
             }else{

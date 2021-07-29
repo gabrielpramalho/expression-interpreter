@@ -72,14 +72,12 @@ public class Parser {
     public void atr() throws Exception{// atr  ::= VAR EQ expr
         
         String s = lookAhead.name;
-       // System.out.println("esse é look: "+lookAhead.type);
+
         Match(lookAhead);
-        
-        //System.out.println("esse é look: "+lookAhead.type);
+
         
         Match(lookAhead);
-        
-        //System.out.println("esse é look: "+lookAhead.type);
+
         
         double expr = expr();
         
@@ -98,7 +96,7 @@ public class Parser {
         
         
         Double v = symbolTable.get(lookAhead.name);
-        //System.out.println("type: "+lookAhead.type+" value: "+lookAhead.value+" name: "+lookAhead.name);
+
         Match(lookAhead);
 
         
@@ -154,7 +152,6 @@ public class Parser {
         
         if(lookAhead.type == TokenType.number){
             double v = lookAhead.value;
-            //System.out.println("entrei: "+v);
             Match(lookAhead);
             return v;
         }

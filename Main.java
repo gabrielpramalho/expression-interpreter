@@ -12,17 +12,11 @@ package com.mycompany.interpretador;
 public class Main {
     
     public static void main(String[] args) throws Exception {
-        Lexer l = new Lexer("$x = 2 + 2 * 3; "
-                          + "print($x);");
-        
-//        for (int i = 0; i < 10; i++) {
-//            Token t = l.nextToken();
-//            System.out.print("Tipo: "+t.type);
-//            System.out.print("| Valor: "+t.value);
-//            System.out.println("| Nome: "+t.name);
-//                               
-//        }
-        
+        Lexer l = new Lexer("$x = 1 + 3;"
+                          + "$y = 10 / 2;"
+                          + "$z = $x + $y;"
+                          + "print($z);");
+ 
         Parser p = new Parser(l);
         p.prog();
     }
