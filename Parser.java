@@ -104,7 +104,7 @@ public class Parser {
             Match(lookAhead);
         }
         
-        System.out.println("Saída: "+v);
+        System.out.println(v);
 
         
     }
