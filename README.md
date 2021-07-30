@@ -24,11 +24,13 @@ A simple expression interpreter built for Compilers course.
     EQ ::= =
     EOL ::= ;
     
-### Intput
-    $x = 1;
-    $y = 2;
+### Example
+
+#### Intput
+    $x = 1 + 3;
+    $y = 10 / 2;
     $z = $x + $y;
     print ($z);
 
-### Output
-    3.0
+#### Output
+    9.0
