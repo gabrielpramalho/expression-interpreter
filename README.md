@@ -26,7 +26,7 @@ A simple expression interpreter built for Compilers course.
     
 ### Example
 
-#### Intput
+#### Input
     $x = 1 + 3;
     $y = 10 / 2;
     $z = $x + $y;
